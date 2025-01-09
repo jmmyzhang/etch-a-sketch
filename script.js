@@ -1,17 +1,30 @@
+let gridSize = 16;
 const grid = document.querySelector("#grid");
+const change = document.querySelector("#change");
 
-for (let i = 0; i < 16; i++) {
-    const row = document.createElement("div")
-    row.id = "row";
 
-    for (let j = 0; j < 16; j++) {
-        const square = document.createElement("div");
-        square.id = "square";
-        row.appendChild(square);
+function changeGrid (size) {
+    while (grid.firstChild) {
+        grid.removeChild(grid.firstChild);
+    }
 
-    grid.appendChild(row);
+    for (let i = 0; i < size; i++) {
+        const row = document.createElement("div")
+        row.id = "row";
+
+        for (let j = 0; j < size; j++) {
+            const square = document.createElement("div");
+            square.id = "square";
+            row.appendChild(square);
+
+        grid.appendChild(row);
+        }
     }
 }
+
+
+document.addEventListener("DOMContentLoaded", changeGrid(gridSize));
+
 
 grid.addEventListener("mouseover", (e) => {
     let target = e.target;
@@ -20,9 +33,25 @@ grid.addEventListener("mouseover", (e) => {
     }
 });
 
+
 grid.addEventListener("mouseout", (e) => {
     let target = e.target;
     if (target.id === "square") {
         target.style.backgroundColor = "white";
     }
+});
+
+
+change.addEventListener("click", () => {
+    gridSize = Number(prompt("Enter desired grid size"));
+    
+    while (gridSize > 100 || !Number.isInteger(gridSize)) {
+        gridSize = Number(prompt("Error: please enter valid size"));
+    }
+
+    if (gridSize === 0) {
+        return
+    }
+
+    changeGrid(gridSize);
 });

@@ -1,23 +1,51 @@
-#container {
+html {
+    height: 100%;
+    font-family: "Copperplate", sans-serif;
+}
+
+body {
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
 }
 
 #grid {
-    background-color: #b5b5b5;
-    display: inline-block;
+    background-color: #e5e5e5;
+    display: flex;
+    flex-direction: column;
+    height: 60dvh;
+    aspect-ratio: 1/1;
+    justify-content: stretch;
+    align-items: stretch;
     padding: 10px;
+    border-radius: 4px;
 }
 
 #row {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: stretch;
+    flex-grow: 1;
 }
 
 #square {
     background-color: white;
-    height: 24px;
-    width: 24px;
+    width: 1px;
+    aspect-ratio: 1/1;
     margin: 1px;
+    flex: 1;
+}
+
+#change {
+    font-family: "Copperplate", sans-serif;
+    font-size: 24px;
+    border-style: none;
+    border-radius: 4px;
+    background-color: #e5e5e5;
+    height: 60px;
+    width: 240px;
 }

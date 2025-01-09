@@ -55,3 +55,13 @@ change.addEventListener("click", () => {
 
     changeGrid(gridSize);
 });
+
+
+change.addEventListener("mouseover", () => {
+    change.style.backgroundColor = "#cccccc";
+});
+
+
+change.addEventListener("mouseout", () => {
+    change.style.backgroundColor = "#e5e5e5";
+});

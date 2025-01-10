@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", changeGrid(gridSize));
 
 grid.addEventListener("mouseover", (e) => {
     let target = e.target;
-    if (e.shiftKey && target.id === "white") {
+    if (e.buttons === 1 && target.id === "white") {
         target.id = "black";
     }
 });

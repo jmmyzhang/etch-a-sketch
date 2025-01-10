@@ -1,6 +1,7 @@
 html {
     height: 100%;
     font-family: "Copperplate", sans-serif;
+    color: #7a7a7a;
 }
 
 body {
@@ -32,20 +33,44 @@ body {
     flex-grow: 1;
 }
 
-#square {
-    background-color: white;
+.square {
     width: 1px;
     aspect-ratio: 1/1;
-    margin: 1px;
+    margin: 0px;
     flex: 1;
 }
 
-#change {
+.square#white {
+    background-color: white;
+}
+
+.square#black {
+    background-color: black;
+}
+
+#btns {
+    background-color: #e5e5e5;
+    width: 60dvh;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    border-radius: 4px;
+}
+
+button {
     font-family: "Copperplate", sans-serif;
     font-size: 24px;
     border-style: none;
     border-radius: 4px;
-    background-color: #e5e5e5;
+    color: #7a7a7a;
+    background-color: white;
     height: 60px;
-    width: 240px;
+    flex: 1;
+}
+
+button:hover {
+    background-color: #f2f2f2;
 }

@@ -1,6 +1,7 @@
 let gridSize = 16;
 const grid = document.querySelector("#grid");
 const change = document.querySelector("#change");
+const erase = document.querySelector("#erase");
 
 
 function changeGrid (size) {
@@ -14,7 +15,8 @@ function changeGrid (size) {
 
         for (let j = 0; j < size; j++) {
             const square = document.createElement("div");
-            square.id = "square";
+            square.classList.add("square");
+            square.id = "white";
             row.appendChild(square);
 
         grid.appendChild(row);
@@ -28,16 +30,8 @@ document.addEventListener("DOMContentLoaded", changeGrid(gridSize));
 
 grid.addEventListener("mouseover", (e) => {
     let target = e.target;
-    if (target.id === "square") {
-        target.style.backgroundColor = "#cccccc";
-    }
-});
-
-
-grid.addEventListener("mouseout", (e) => {
-    let target = e.target;
-    if (target.id === "square") {
-        target.style.backgroundColor = "white";
+    if (e.shiftKey && target.id === "white") {
+        target.id = "black";
     }
 });
 
@@ -57,11 +51,9 @@ change.addEventListener("click", () => {
 });
 
 
-change.addEventListener("mouseover", () => {
-    change.style.backgroundColor = "#cccccc";
-});
-
-
-change.addEventListener("mouseout", () => {
-    change.style.backgroundColor = "#e5e5e5";
+erase.addEventListener("click", () => {
+    let colored = document.querySelectorAll("#black");
+    colored.forEach(element => {
+        element.id = "white";
+    });
 });

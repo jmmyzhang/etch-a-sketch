@@ -22,6 +22,8 @@ function changeGrid (size) {
         grid.appendChild(row);
         }
     }
+    const h2 = document.querySelector("h2");
+    h2.innerText = `Current Grid: ${gridSize} X ${gridSize}`;
 }
 
 
